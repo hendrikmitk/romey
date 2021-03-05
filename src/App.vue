@@ -1,8 +1,11 @@
 <template>
   <div class="text-center">
+    <h1 class="font-2xl">Test headline</h1>
     <div class="p-6" id="nav">
       <router-link class="font-bold text-gray-700" to="/">Home</router-link> |
-      <router-link class="font-bold text-gray-700" to="/about">About</router-link>
+      <router-link class="font-bold text-gray-700" to="/about"
+        >About</router-link
+      >
     </div>
     <router-view />
   </div>
