@@ -1,0 +1,11 @@
+# node_modules
+node_modules
+
+# .cache
+.cache
+
+# dotenv file
+.env
+
+# macOS resources
+.DS_Store
