@@ -8,17 +8,29 @@
       <div
         v-for="spot in spots"
         :key="spot.id"
-        class="relative md:w-24 md:h-36 lg:w-32 lg:h-48 xl:w-32 xl:h-52 2xl:w-52 2xl:h-80"
+        @click="toggleCard(spot.id)"
+        class="relative overflow-hidden scale-125 md:w-24 md:h-36 lg:w-32 lg:h-48 xl:w-32 xl:h-52 2xl:w-52 2xl:h-80"
       >
         <!-- Background image -->
         <img
           v-bind:src="spot.image.src"
+          @click="toggleCard(spot.id)"
+          :class="
+            selectedSpotId === spot.id
+              ? 'transform scale-110 duration-500 ease-out'
+              : 'transform scale-100 duration-300 ease-in'
+          "
           class="object-cover w-full h-full origin-center rounded-sm"
         />
 
         <!-- Background overlay -->
         <div
-          class="absolute rounded-sm opacity-40 bg-shark-800 inset-0 xl:top-0.5 xl:right-0.5 xl:bottom-0.5 xl:left-0.5 2xl:top-1 2xl:right-1 2xl:bottom-1 2xl:left-1"
+          :class="
+            selectedSpotId === spot.id
+              ? 'border-bridal-600 opacity-40'
+              : 'bg-shark-600 opacity-80'
+          "
+          class="absolute rounded-sm inset-0 xl:top-0.5 xl:right-0.5 xl:bottom-0.5 xl:left-0.5 2xl:top-1 2xl:right-1 2xl:bottom-1 2xl:left-1"
         ></div>
 
         <!-- Background border -->
@@ -74,18 +86,33 @@
 export default {
   name: "SpotCards",
 
-  computed: {
-    spots() {
-      return this.$store.getters.spotList;
-    },
-  },
-
   methods: {
     toDateTime(secs) {
       let t = new Date(1970, 0, 1);
       t.setSeconds(secs);
       return t;
     },
+
+    toggleCard(cardSpotId) {
+      console.log(`Card ${cardSpotId} clicked! 🖱`);
+      if (cardSpotId == this.$store.getters.selectedSpotId) {
+        console.log(`Reseting setSelectedSpotId to ${0} ⏮`);
+        this.$store.commit("setSelectedSpotId", 0);
+      } else {
+        console.log(`Updating setSelectedSpotId to ${cardSpotId} ⛓`);
+        this.$store.commit("setSelectedSpotId", cardSpotId);
+      }
+    },
+  },
+
+  computed: {
+    spots() {
+      return this.$store.getters.spotList;
+    },
+
+    selectedSpotId() {
+      return this.$store.getters.selectedSpotId;
+    },
   },
 };
-</script>
+</script> 

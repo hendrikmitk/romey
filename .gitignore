@@ -4,8 +4,9 @@ node_modules
 # .cache
 .cache
 
-# dotenv file
-.env
+# dotenv files
+.env.development.*
+.env.production.*
 
 # macOS resources
 .DS_Store

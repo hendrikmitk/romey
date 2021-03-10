@@ -1,6 +1,7 @@
 <template>
   <div v-if="initialized">
     <div
+      @click="logSelectedSpotId"
       class="fixed flex flex-row justify-between w-screen h-16 bg-shark-500 text-bridal-600"
       id="nav"
     >
@@ -10,7 +11,7 @@
       </router-link>
 
       <div class="flex flex-row items-center mr-8 space-x-8">
-        <router-link to="/contact">Contact</router-link>
+        <router-link to="/contact">Contact us</router-link>
       </div>
     </div>
     <router-view />
@@ -33,10 +34,21 @@ export default {
     this.$store.dispatch("init");
   },
 
+  methods: {
+    logSelectedSpotId: function () {
+      console.log(
+        `selectedSpotId currently is: ${this.$store.getters.selectedSpotId} 👀`
+      );
+    },
+  },
+
   computed: {
     initialized() {
-      console.log("App initialized ⚙️");
       return this.$store.getters.initialized;
+    },
+
+    getSelectedSpotId() {
+      return this.$store.getters.selectedSpotId;
     },
   },
 };

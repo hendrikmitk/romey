@@ -156,7 +156,7 @@ const data = [
 			src: '/img/rainbow-mountain.jpg'
 		},
 		location: {
-			city: 'Uchullujllo',
+			city: 'Cusco',
 			coordinates: {
 				lat: -14.045,
 				lng: -71.257
