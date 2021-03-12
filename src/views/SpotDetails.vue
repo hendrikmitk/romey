@@ -1,11 +1,11 @@
 <template>
   <div class="flex h-screen pt-16">
-    <h1>This is the contact page</h1>
+    <h1>This will be the Spot details page 🏝</h1>
   </div>
 </template>
 
 <script>
 export default {
-  name: "ContactPage",
+  name: "SpotDetails",
 };
 </script>

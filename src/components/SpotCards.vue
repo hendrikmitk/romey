@@ -9,7 +9,7 @@
         v-for="spot in spots"
         :key="spot.id"
         @click="toggleCard(spot.id)"
-        class="relative overflow-hidden scale-125 md:w-24 md:h-36 lg:w-32 lg:h-48 xl:w-32 xl:h-52 2xl:w-52 2xl:h-80"
+        class="relative overflow-hidden scale-125 font-merriweather md:w-24 md:h-36 lg:w-32 lg:h-48 xl:w-32 xl:h-52 2xl:w-52 2xl:h-80"
       >
         <!-- Background image -->
         <img

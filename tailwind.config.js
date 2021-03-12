@@ -36,12 +36,20 @@ module.exports = {
 				xxs: '.625rem'
 			}
 		},
+		fill: {
+			current: 'currentColor'
+		},
 		fontFamily: {
-			pacifico: ['Pacifico', 'Sans-serif']
+			pacifico: ['Pacifico', 'sans-serif'],
+			merriweather: ['Merriweather', 'serif'],
+			montserrat: ['Montserrat', 'sans-serif']
 		}
 	},
 	variants: {
-		extend: {}
+		extend: {},
+		variants: {
+			fill: ['hover', 'focus']
+		}
 	},
 	plugins: []
 };

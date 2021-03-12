@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Dashboard from '../views/Dashboard.vue';
+import SpotDetails from '../views/SpotDetails.vue';
+import ContactPage from '../views/ContactPage.vue';
 
 const routes = [
 	{
@@ -8,18 +10,31 @@ const routes = [
 		component: Dashboard
 	},
 	{
+		path: '/details/:spotId',
+		name: 'SpotDetails',
+		component: SpotDetails,
+		props: true
+	},
+	{
 		path: '/contact',
 		name: 'ContactPage',
-		// route level code-splitting
-		// this generates a separate chunk (about.[hash].js) for this route
-		// which is lazy-loaded when the route is visited.
-		component: () => import(/* webpackChunkName: "about" */ '../views/ContactPage.vue')
+		component: ContactPage
+	},
+	{
+		path: '/:catchAll(.*)',
+		name: 'PageNotFound',
+		component: () => import('../views/PageNotFound.vue')
 	}
 ];
 
 const router = createRouter({
 	history: createWebHistory(process.env.BASE_URL),
 	routes
+});
+
+router.afterEach(() => {
+	// ...
+	console.log('router.afterEach triggered 🔁');
 });
 
 export default router;

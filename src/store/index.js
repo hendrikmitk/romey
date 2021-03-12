@@ -90,7 +90,7 @@ export default createStore({
 
 			{
 				// Init map style
-				const data = getMapStyle();
+				const data = await getMapStyle();
 				console.log('Map style fetched 🎨');
 				commit('initMapStyle', data);
 			}
