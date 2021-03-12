@@ -1,19 +1,19 @@
 <template>
   <div class="flex h-screen pt-16">
-    <SpotCards />
+    <SpotPreview />
     <Map />
   </div>
 </template>
 
 <script>
-import SpotCards from "../components/SpotCards";
+import SpotPreview from "../components/SpotPreview";
 import Map from "../components/Map";
 
 export default {
   name: "Dashboard",
 
   components: {
-    SpotCards,
+    SpotPreview,
     Map,
   },
 

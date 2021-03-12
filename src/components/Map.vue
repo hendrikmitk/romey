@@ -23,7 +23,7 @@
         @click="toggleMarker(spot.id)"
       >
         <GMapInfoWindow :opened="selectedSpotId == spot.id ? true : false">
-          <!-- Component for the InfoWindow -->
+          <!-- MapInfoWindow Component  -->
           <MapInfoWindow :spot="spot" />
         </GMapInfoWindow>
       </GMapMarker>
@@ -56,20 +56,6 @@ export default {
       } else {
         console.log(`Updating setSelectedSpotId to ${markerSpotId} ⛓`);
         this.$store.commit("setSelectedSpotId", markerSpotId);
-      }
-    },
-
-    toggleInfoButton(buttonSpot) {
-      console.log(`Info button ${buttonSpot.id} clicked! ℹ️`);
-      if (buttonSpot.id !== this.$store.getters.selectedSpotId) {
-        return;
-      } else {
-        console.log(`Updating detailSpot to ${buttonSpot.title} 💅`);
-        this.$store.commit("setDetailSpot", buttonSpot);
-        this.$router.push({
-          name: "SpotDetails",
-          params: { spotId: buttonSpot.id },
-        });
       }
     },
   },
