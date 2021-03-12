@@ -8,7 +8,7 @@ export default createStore({
 		spotList: [],
 		selectedSpotId: 0,
 		latestPost: {},
-		detailsSpotId: 0,
+		detailSpot: {},
 		mapStyle: [],
 		mapCenter: {}
 	},
@@ -18,7 +18,7 @@ export default createStore({
 		spotList: state => state.spotList,
 		selectedSpotId: state => state.selectedSpotId,
 		latestPost: state => state.latestPostId,
-		detailsSpotId: state => state.detailsSpotId,
+		detailSpot: state => state.detailSpot,
 		mapStyle: state => state.mapStyle,
 		mapCenter: state => state.mapCenter
 	},
@@ -40,8 +40,8 @@ export default createStore({
 			state.latestPost = data;
 		},
 
-		setDetailsSpotId: (state, data) => {
-			state.detailsSpotId = data;
+		setDetailSpot: (state, data) => {
+			state.detailSpot = data;
 		},
 
 		initMapStyle: (state, data) => {

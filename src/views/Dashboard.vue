@@ -11,9 +11,16 @@ import Map from "../components/Map";
 
 export default {
   name: "Dashboard",
+
   components: {
     SpotCards,
     Map,
+  },
+
+  computed: {
+    detailSpotId() {
+      return this.$store.getters.detailSpotId;
+    },
   },
 };
 </script>

@@ -94,7 +94,7 @@
                 class="flex items-center justify-center w-24 h-10 text-bridal-200 bg-shark-500 flew-row lg:w-32 lg:h-12"
               >
                 <svg
-                  @click="toggleInfoButton(spot.id)"
+                  @click="toggleInfoButton(spot)"
                   class="duration-200 transform cursor-pointer lg:duration-300 hover:scale-110 lg:hover:scale-125 h-4/6 lg:h-3/5"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -139,8 +139,18 @@ export default {
       }
     },
 
-    toggleInfoButton(markerSpotId) {
-      console.log(`Info button ${markerSpotId} clicked! ℹ️`);
+    toggleInfoButton(buttonSpot) {
+      console.log(`Info button ${buttonSpot.id} clicked! ℹ️`);
+      if (buttonSpot.id !== this.$store.getters.selectedSpotId) {
+        return;
+      } else {
+        console.log(`Updating detailSpot to ${buttonSpot.title} 💅`);
+        this.$store.commit("setDetailSpot", buttonSpot);
+        this.$router.push({
+          name: "SpotDetails",
+          params: { spotId: buttonSpot.id },
+        });
+      }
     },
   },
 
@@ -149,12 +159,12 @@ export default {
       return this.$store.getters.spotList;
     },
 
-    selectedSpotId() {
-      return this.$store.getters.selectedSpotId;
-    },
-
     mapCenter() {
       return this.$store.getters.mapCenter;
+    },
+
+    selectedSpotId() {
+      return this.$store.getters.selectedSpotId;
     },
   },
 };

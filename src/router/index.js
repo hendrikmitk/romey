@@ -32,9 +32,4 @@ const router = createRouter({
 	routes
 });
 
-router.afterEach(() => {
-	// ...
-	console.log('router.afterEach triggered 🔁');
-});
-
 export default router;

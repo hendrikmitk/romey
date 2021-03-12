@@ -14,7 +14,7 @@
       <div class="flex items-center space-x-10">
         <router-link
           to="/contact"
-          class="flex items-center justify-center w-40 duration-200 transform border rounded-md h-3/5 hover:scale-110 border-bridal-300 hover:border-shark-500 bg-shark-500 hover:bg-bridal-300 text-bridal-300 hover:text-shark-500"
+          class="flex items-center justify-center w-40 border rounded-md h-3/5 border-bridal-300 hover:border-shark-500 bg-shark-500 hover:bg-bridal-300 text-bridal-300 hover:text-shark-500"
         >
           <h1 class="font-medium font-montserrat">Contact</h1>
         </router-link>
@@ -86,8 +86,13 @@ export default {
   methods: {
     logSelectedSpotId: function () {
       console.log(
-        `selectedSpotId currently is: ${this.$store.getters.selectedSpotId} 👀`
+        `selectedSpotId currently is ${this.$store.getters.selectedSpotId} 👀`
       );
+      if (this.$store.getters.detailSpot.id) {
+        console.log(
+          `Details page: detailSpot.id is ${this.$store.getters.detailSpot.id} 👀`
+        );
+      }
     },
   },
 
