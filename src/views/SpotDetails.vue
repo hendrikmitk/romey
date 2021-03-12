@@ -2,7 +2,7 @@
   <div class="flex h-screen pt-16">
     <div
       @click="
-        resetSelectedSpot();
+        resetDetailSpot();
         $router.go(-1);
       "
       class="flex items-center justify-center w-40 h-10 transform border rounded-md border-shark-500 hover:bg-shark-500 hover:text-bridal-300 hover:border-bridal-300 bg-bridal-300 text-shark-500"
@@ -34,7 +34,14 @@ export default {
   name: "SpotDetails",
 
   methods: {
-    resetSelectedSpot() {
+    resetDetailSpot() {
+      console.log(
+        `Center map by last detailSpot ${this.$store.getters.detailSpot.title} 📍`
+      );
+      this.$store.commit(
+        "initMapCenter",
+        this.$store.getters.detailSpot.location.coordinates
+      );
       console.log(`Reseting detailSpot ⏮`);
       this.$store.commit("setDetailSpot", {});
     },
