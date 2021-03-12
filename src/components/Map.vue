@@ -31,12 +31,12 @@
             <img
               v-bind:src="spot.image.src"
               @click="toggleCard(spot.id)"
-              class="object-cover w-full h-full origin-center rounded-sm"
+              class="object-cover w-full origin-center rounded-sm h-28 lg:h-36"
             />
 
             <!-- Background overlay -->
             <div
-              class="absolute inset-0 rounded-sm bg-shark-600 opacity-40"
+              class="absolute inset-0 rounded-sm bg-shark-600 opacity-60"
             ></div>
 
             <!-- Background border -->
@@ -44,43 +44,70 @@
               class="hidden lg:flex absolute rounded-sm top-0.5 right-0.5 bottom-0.5 left-0.5"
             ></div>
 
-            <!-- Content wrapper -->
+            <!-- Card wrapper -->
             <div
-              class="absolute inset-0 flex flex-col justify-end w-full h-full p-1.5 lg:p-2"
+              class="absolute inset-0 flex flex-col justify-end w-full h-full"
             >
-              <!-- Date -->
-              <div class="pl-1 w-max bg-shark-600">
+              <!-- Content wrapper -->
+              <div class="p-1.5 lg:p-2">
+                <!-- Date -->
+                <div class="pl-1 w-max bg-shark-600">
+                  <p
+                    class="mr-1 italic font-light text-left my-0.5 text-xxxs lg:text-xxs text-bridal-400"
+                  >
+                    {{
+                      toDateTime(spot.date.seconds).toLocaleDateString(
+                        "en-us",
+                        {
+                          year: "numeric",
+                          month: "long",
+                          day: "numeric",
+                        }
+                      )
+                    }}
+                  </p>
+                </div>
+
+                <!-- Title -->
                 <p
-                  class="mr-1 italic font-light text-left my-0.5 text-xxxs lg:text-xxs text-bridal-400"
+                  class="lg:mt-0.5 lg:mb-1 md:text-sm lg:text-base text-bridal-500"
                 >
-                  {{
-                    toDateTime(spot.date.seconds).toLocaleDateString("en-us", {
-                      year: "numeric",
-                      month: "long",
-                      day: "numeric",
-                    })
-                  }}
+                  {{ spot.title }}
                 </p>
+
+                <!-- Author -->
+                <div class="flex mb-1 lg:space-x-1">
+                  <img
+                    v-bind:src="spot.author_image_src"
+                    class="hidden rounded-full lg:flex lg:w-4 lg:h-4"
+                  />
+                  <p
+                    class="flex items-center font-light text-xxs lg:text-xs text-bridal-200"
+                  >
+                    {{ spot.author }}
+                  </p>
+                </div>
               </div>
 
-              <!-- Title -->
-              <p
-                class="lg:mt-0.5 lg:mb-1 md:text-sm lg:text-base text-bridal-500"
+              <!-- Bottom button -->
+              <div
+                class="flex items-center justify-center w-24 h-10 text-bridal-200 bg-shark-500 flew-row lg:w-32 lg:h-12"
               >
-                {{ spot.title }}
-              </p>
-
-              <!-- Author -->
-              <div class="flex lg:space-x-1">
-                <img
-                  v-bind:src="spot.author_image_src"
-                  class="hidden rounded-full lg:flex lg:w-4 lg:h-4"
-                />
-                <p
-                  class="flex items-center font-light text-xxs lg:text-xs text-bridal-200"
+                <svg
+                  @click="toggleInfoButton(spot.id)"
+                  class="duration-200 transform cursor-pointer lg:duration-300 hover:scale-110 lg:hover:scale-125 h-4/6 lg:h-3/5"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
                 >
-                  {{ spot.author }}
-                </p>
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  ></path>
+                </svg>
               </div>
             </div>
           </div>
@@ -110,6 +137,10 @@ export default {
         console.log(`Updating setSelectedSpotId to ${markerSpotId} ⛓`);
         this.$store.commit("setSelectedSpotId", markerSpotId);
       }
+    },
+
+    toggleInfoButton(markerSpotId) {
+      console.log(`Info button ${markerSpotId} clicked! ℹ️`);
     },
   },
 
