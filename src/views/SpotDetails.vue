@@ -1,7 +1,6 @@
 <template>
   <div class="flex h-screen pt-16">
     <div
-      id="content"
       class="flex flex-col w-4/6 px-24 pt-10 pb-2 2xl:pt-16 2xl:px-32 bg-bridal-300"
     >
       <div>
@@ -31,7 +30,7 @@
         </div>
       </div>
       <div
-        class="flex flex-col h-full py-6 justify-evenly font-merriweather text-shark-500"
+        class="flex flex-col justify-between h-full py-10 2xl:py-16 font-merriweather text-shark-500"
       >
         <!-- Title, date and author -->
         <div>
@@ -93,30 +92,28 @@
         </div>
 
         <!-- Location -->
-        <div class="flex items-center">
-          <div class="mr-2 text-shark-300">
-            <svg
-              class="w-8 h-8"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-              ></path>
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-              ></path>
-            </svg>
-          </div>
-          <div class="text-xs italic text-shark-400">
+        <div class="flex items-center text-shark-300">
+          <svg
+            class="w-5 h-5 mr-2 2xl:w-8 2xl:h-8"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+            ></path>
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+            ></path>
+          </svg>
+          <div class="text-xs italic 2xl:text-sm text-shark-400">
             {{ detailSpot.location.city }},
             {{ detailSpot.location.country }}
           </div>
