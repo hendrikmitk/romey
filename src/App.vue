@@ -14,14 +14,14 @@
       <div class="flex items-center space-x-10">
         <router-link
           to="/contact"
-          class="flex items-center justify-center w-40 border rounded-md h-3/5 border-bridal-300 hover:border-shark-500 bg-shark-500 hover:bg-bridal-300 text-bridal-300 hover:text-shark-500"
+          class="flex items-center justify-center w-40 border rounded-md h-3/5 border-bridal-300 bg-shark-500 hover:bg-bridal-300 text-bridal-300 hover:text-shark-500"
         >
           <h1 class="font-medium font-montserrat">Contact</h1>
         </router-link>
 
         <div
           @click="logSelectedSpotId"
-          class="flex items-center justify-center w-40 duration-200 transform border rounded-md border-shark-500 hover:scale-110 h-3/5 hover:bg-shark-500 hover:text-bridal-300 hover:border-bridal-300 bg-bridal-300 text-shark-500"
+          class="flex items-center justify-center w-40 transform border rounded-md border-bridal-300 h-3/5 hover:bg-shark-500 hover:text-bridal-300 bg-bridal-300 text-shark-500"
         >
           <svg
             class="absolute left-2 hover:fill-current h-4/6"
@@ -42,7 +42,7 @@
         </div>
 
         <div
-          class="flex items-center justify-center w-40 duration-200 transform border rounded-md border-shark-500 hover:scale-110 h-3/5 hover:bg-shark-500 hover:text-bridal-300 hover:border-bridal-300 bg-bridal-300 text-shark-500"
+          class="flex items-center justify-center w-40 transform border rounded-md border-bridal-300 h-3/5 hover:bg-shark-500 hover:text-bridal-300 bg-bridal-300 text-shark-500"
         >
           <svg
             class="absolute left-2 hover:fill-current h-4/6"
@@ -63,7 +63,12 @@
         </div>
       </div>
     </div>
-    <router-view />
+    <!-- <router-view /> -->
+    <router-view v-slot="{ Component }">
+      <keep-alive>
+        <component :is="Component" />
+      </keep-alive>
+    </router-view>
   </div>
   <div
     v-else
@@ -84,7 +89,7 @@ export default {
   },
 
   methods: {
-    logSelectedSpotId: function () {
+    logSelectedSpotId() {
       console.log(
         `selectedSpotId currently is ${this.$store.getters.selectedSpotId} 👀`
       );

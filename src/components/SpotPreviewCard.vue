@@ -2,7 +2,6 @@
   <!-- Background image -->
   <img
     v-bind:src="spot.image.src"
-    @click="toggleCard(spot.id)"
     :class="
       selectedSpotId === spot.id
         ? 'transform scale-110 duration-500 ease-out'
@@ -80,17 +79,6 @@ export default {
       let t = new Date(1970, 0, 1);
       t.setSeconds(secs);
       return t;
-    },
-
-    toggleCard(cardSpotId) {
-      console.log(`Card ${cardSpotId} clicked! 🖱`);
-      if (cardSpotId == this.$store.getters.selectedSpotId) {
-        console.log(`Reseting setSelectedSpotId to ${0} ⏮`);
-        this.$store.commit("setSelectedSpotId", 0);
-      } else {
-        console.log(`Updating setSelectedSpotId to ${cardSpotId} ⛓`);
-        this.$store.commit("setSelectedSpotId", cardSpotId);
-      }
     },
   },
 

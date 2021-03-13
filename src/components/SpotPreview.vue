@@ -8,7 +8,7 @@
       <div
         v-for="spot in spots"
         :key="spot.id"
-        @click="toggleCard(spot.id)"
+        @click="toggleCard(spot)"
         class="relative overflow-hidden scale-125 font-merriweather md:w-24 md:h-36 lg:w-32 lg:h-48 xl:w-32 xl:h-52 2xl:w-52 2xl:h-80"
       >
         <!-- SpotPreviewCard component -->
@@ -29,15 +29,21 @@ export default {
   },
 
   methods: {
-    toggleCard(cardSpotId) {
-      console.log(`Card ${cardSpotId} clicked! 🖱`);
-      if (cardSpotId == this.$store.getters.selectedSpotId) {
-        console.log(`Reseting setSelectedSpotId to ${0} ⏮`);
-        this.$store.commit("setSelectedSpotId", 0);
-      } else {
-        console.log(`Updating setSelectedSpotId to ${cardSpotId} ⛓`);
-        this.$store.commit("setSelectedSpotId", cardSpotId);
+    toggleCard(spot) {
+      console.log(`Card ${spot.id} clicked! 🖱`);
+      if (spot.id == this.$store.getters.selectedSpotId) {
+        console.log(`setSelectedSpotId is already ${spot.id} 🥱`);
       }
+      if (spot.id !== this.$store.getters.selectedSpotId) {
+        console.log(`Updating setSelectedSpotId to ${spot.id} ⛓`);
+        this.$store.commit("setSelectedSpotId", spot.id);
+      }
+      console.log(`Updating detailSpot to ${spot.title} 💅`);
+      this.$store.commit("setDetailSpot", spot);
+      this.$router.push({
+        name: "SpotDetails",
+        params: { spotId: spot.id },
+      });
     },
   },
 

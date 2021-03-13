@@ -9,7 +9,7 @@
     />
 
     <!-- Background overlay -->
-    <div class="absolute inset-0 rounded-sm bg-shark-600 opacity-60"></div>
+    <div class="absolute inset-0 rounded-sm bg-shark-600 opacity-40"></div>
 
     <!-- Background border -->
     <div
@@ -60,7 +60,7 @@
       >
         <svg
           @click="toggleInfoButton(spot)"
-          class="duration-200 transform cursor-pointer lg:duration-300 hover:scale-110 lg:hover:scale-125 h-4/6 lg:h-3/5"
+          class="duration-200 transform cursor-pointer lg:duration-300 hover:scale-110 lg:hover:scale-125 h-5/6 lg:h-4/5"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           stroke="currentColor"
@@ -70,7 +70,7 @@
             stroke-linecap="round"
             stroke-linejoin="round"
             stroke-width="2"
-            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+            d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"
           ></path>
         </svg>
       </div>

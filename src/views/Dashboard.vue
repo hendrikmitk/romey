@@ -16,11 +16,5 @@ export default {
     SpotPreview,
     Map,
   },
-
-  computed: {
-    detailSpotId() {
-      return this.$store.getters.detailSpotId;
-    },
-  },
 };
 </script>
