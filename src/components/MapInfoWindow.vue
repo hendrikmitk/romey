@@ -56,11 +56,11 @@
 
       <!-- Bottom button -->
       <div
-        class="flex items-center justify-center w-24 h-10 text-bridal-200 bg-shark-500 flew-row lg:w-32 lg:h-12"
+        class="flex items-center justify-center w-24 h-10 text-bridal-200 bg-shark-500 flew-row xl:w-32 xl:h-12"
       >
         <svg
           @click="toggleInfoButton(spot)"
-          class="duration-200 transform cursor-pointer lg:duration-300 hover:scale-110 lg:hover:scale-125 h-5/6 lg:h-4/5"
+          class="cursor-pointer h-4/6 xl:h-5/6"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           stroke="currentColor"
@@ -69,8 +69,14 @@
           <path
             stroke-linecap="round"
             stroke-linejoin="round"
-            stroke-width="2"
-            d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"
+            stroke-width="1"
+            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+          ></path>
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1"
+            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
           ></path>
         </svg>
       </div>

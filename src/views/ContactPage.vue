@@ -48,8 +48,8 @@
             </p>
           </div>
           <div class="py-2 text-sm 2xl:py-6 2xl:text-base">
-            <p class="pb-2 font-bold 2xl:text-lg">Feature list</p>
-            <ul class="space-y-1">
+            <p class="pb-2 italic font-bold 2xl:text-lg">Feature list</p>
+            <ul class="space-y-1 2xl:space-y-2">
               <li>🧱 Built with <b>Vue 3</b> and <b>Tailwind CSS</b></li>
               <li>🎛 Uses <b>Vuex</b> for State Management</li>
               <li>🚏 Syncing views with <b>Vue Router</b></li>
