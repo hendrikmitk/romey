@@ -1,5 +1,6 @@
 <template>
   <div v-if="initialized">
+    <!-- Menu bar -->
     <div
       class="fixed flex flex-row justify-between w-screen h-16 px-12 bg-shark-500 text-bridal-600"
       id="nav"
@@ -20,7 +21,6 @@
         </router-link>
 
         <div
-          @click="logSelectedSpotId"
           class="flex items-center justify-center w-40 transform border rounded-md border-bridal-300 h-3/5 hover:bg-shark-500 hover:text-bridal-300 bg-bridal-300 text-shark-500"
         >
           <svg
@@ -88,26 +88,9 @@ export default {
     this.$store.dispatch("init");
   },
 
-  methods: {
-    logSelectedSpotId() {
-      console.log(
-        `selectedSpotId currently is ${this.$store.getters.selectedSpotId} 👀`
-      );
-      if (this.$store.getters.detailSpot.id) {
-        console.log(
-          `Details page: detailSpot.id is ${this.$store.getters.detailSpot.id} 👀`
-        );
-      }
-    },
-  },
-
   computed: {
     initialized() {
       return this.$store.getters.initialized;
-    },
-
-    getSelectedSpotId() {
-      return this.$store.getters.selectedSpotId;
     },
   },
 };

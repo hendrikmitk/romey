@@ -123,7 +123,7 @@
     <div class="w-2/6 p-4" v-if="detailSpot">
       <GMapMap
         :center="detailSpot.location.coordinates"
-        :zoom="4.5"
+        :zoom="5.5"
         :options="{
           zoomControl: true,
           mapTypeControl: false,
@@ -154,7 +154,7 @@ export default {
 
     centerMapLastdetail() {
       console.log(
-        `Center map by last detailSpot ${this.$store.getters.detailSpot.title} 📍`
+        `Center map by detailSpot ${this.$store.getters.detailSpot.title} 🧭`
       );
       this.$store.commit(
         "initMapCenter",

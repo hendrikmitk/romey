@@ -15,7 +15,7 @@
     :class="
       selectedSpotId === spot.id
         ? 'border-bridal-600 opacity-40'
-        : 'bg-shark-600 opacity-80'
+        : 'bg-shark-800 opacity-80'
     "
     class="absolute rounded-sm inset-0 xl:top-0.5 xl:right-0.5 xl:bottom-0.5 xl:left-0.5 2xl:top-1 2xl:right-1 2xl:bottom-1 2xl:left-1"
   ></div>

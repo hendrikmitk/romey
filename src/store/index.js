@@ -1,6 +1,5 @@
 import { createStore } from 'vuex';
 // import { getSpotData } from '../utils/spotData'; // Static spot data
-import { getMapStyle } from '../utils/mapStyle';
 
 export default createStore({
 	state: {
@@ -9,7 +8,6 @@ export default createStore({
 		selectedSpotId: 0,
 		latestPost: {},
 		detailSpot: {},
-		mapStyle: [],
 		mapCenter: {}
 	},
 
@@ -19,7 +17,6 @@ export default createStore({
 		selectedSpotId: state => state.selectedSpotId,
 		latestPost: state => state.latestPostId,
 		detailSpot: state => state.detailSpot,
-		mapStyle: state => state.mapStyle,
 		mapCenter: state => state.mapCenter
 	},
 
@@ -42,10 +39,6 @@ export default createStore({
 
 		setDetailSpot: (state, data) => {
 			state.detailSpot = data;
-		},
-
-		initMapStyle: (state, data) => {
-			state.mapStyle = data;
 		},
 
 		initMapCenter: (state, data) => {
@@ -86,13 +79,6 @@ export default createStore({
 				// Init map center by latest post
 				const center = latestPost.location.coordinates;
 				commit('initMapCenter', center);
-			}
-
-			{
-				// Init map style
-				const data = await getMapStyle();
-				console.log('Map style fetched 🎨');
-				commit('initMapStyle', data);
 			}
 
 			// App data is ready for use

@@ -1,5 +1,6 @@
 <template>
   <GMapMap
+    class="py-4 pl-2 pr-4 2xl:pl-4 2xl:py-8 2xl:pr-8 bg-bridal-300"
     :center="mapCenter"
     :zoom="3"
     :options="{
@@ -49,7 +50,7 @@ export default {
     },
 
     toggleMarker(markerSpotId) {
-      console.log(`Marker ${markerSpotId} clicked! 🖱`);
+      console.log(`Marker ${markerSpotId} clicked! 📍`);
       if (markerSpotId == this.$store.getters.selectedSpotId) {
         console.log(`Return without updating setSelectedSpotId 😴`);
         return;
