@@ -7,7 +7,7 @@
       <div>
         <div
           @click="$router.go(-1)"
-          class="flex items-center justify-center w-40 h-10 transform border rounded-md border-shark-500 hover:bg-bridal-300 hover:text-shark-500 bg-shark-500 text-bridal-300"
+          class="flex items-center justify-center w-40 h-10 transform border rounded-md cursor-pointer border-shark-500 hover:bg-bridal-300 hover:text-shark-500 bg-shark-500 text-bridal-300"
         >
           <svg
             class="absolute left-2 hover:fill-current h-4/6"

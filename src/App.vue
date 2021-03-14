@@ -5,7 +5,7 @@
       class="fixed flex flex-row justify-between w-screen h-16 px-12 bg-shark-500 text-bridal-600"
       id="nav"
     >
-      <div>
+      <div class="w-min">
         <router-link to="/" class="flex flex-row items-center h-full">
           <img src="./assets/romey.svg" class="mr-4 h-3/5" />
           <h1 class="pb-2.5 text-3xl font-pacifico">romey</h1>
