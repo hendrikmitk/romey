@@ -51,11 +51,11 @@
 
       <!-- Bottom button -->
       <div
-        class="flex items-center justify-center w-24 h-10 border border-shark-500 text-bridal-300 hover:bg-bridal-300 hover:text-shark-500 bg-shark-500 flew-row lg:w-32 lg:h-10"
+        @click="toggleInfoButton(spot)"
+        class="flex items-center justify-center w-24 h-10 border cursor-pointer border-shark-500 text-bridal-300 hover:bg-bridal-300 hover:text-shark-500 bg-shark-500 lg:w-32 lg:h-10"
       >
         <svg
-          @click="toggleInfoButton(spot)"
-          class="cursor-pointer h-2/6 xl:h-3/6"
+          class="h-2/6 xl:h-3/6"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           stroke="currentColor"
