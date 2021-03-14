@@ -104,10 +104,14 @@
 
     <!-- Right area -->
     <div class="w-2/6 p-4">
-      <div
-        class="flex items-center justify-center h-full bg-shark-500 text-bridal-300"
-      >
-        Image
+      <div class="flex justify-center h-full rounded-sm bg-shark-500">
+        <div class="w-3/5 mt-16">
+          <img
+            class="rounded-full"
+            src="../assets/hendrik.jpg"
+            alt="Image of Hendrik"
+          />
+        </div>
       </div>
     </div>
   </div>
