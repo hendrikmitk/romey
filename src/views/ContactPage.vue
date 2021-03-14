@@ -54,10 +54,11 @@
               <li>🎛 Uses <b>Vuex</b> for State Management</li>
               <li>🚏 Syncing views with <b>Vue Router</b></li>
               <li>
-                🗺
+                🗺 Reactive
                 <a target="_blank" href="https://vue-map.netlify.app/"
-                  >Reactive Vue 3 components for Google maps</a
+                  >Vue 3 Google maps</a
                 >
+                components
               </li>
               <li>
                 ⚙️ Powered by its dedicated
