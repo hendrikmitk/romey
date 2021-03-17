@@ -1,12 +1,12 @@
 <template>
   <div
-    class="flex items-center justify-center min-h-screen transform hover:opacity-30 bg-shark-600 text-bridal-600"
+    class="flex flex-col items-center justify-center min-h-screen bg-bridal-300"
   >
-    <div
-      class="flex items-center justify-center border-2 rounded-lg h-14 w-72 border-bridal-600"
-    >
-      <h1 class="text-2xl animate-pulse">Loading data</h1>
+    <div class="w-14 h-14">
+      <img src="../assets/loading.png" class="animate-spin" />
     </div>
+
+    <h1 class="mt-4 text-xl text-shark-500 font-montserrat">Loading data</h1>
   </div>
 </template>
 
