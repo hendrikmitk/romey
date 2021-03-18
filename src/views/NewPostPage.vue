@@ -25,7 +25,6 @@
               type="text"
               name="title"
               id="title"
-              required
               autocomplete="off"
               v-model="title"
               placeholder="Elbphilharmonie"
@@ -45,7 +44,6 @@
                 type="text"
                 name="city"
                 id="city"
-                required
                 autocomplete="off"
                 v-model="city"
                 placeholder="Hamburg"
@@ -62,7 +60,6 @@
                 type="text"
                 name="country"
                 id="country"
-                required
                 autocomplete="off"
                 v-model="country"
                 placeholder="Germany"
@@ -83,7 +80,6 @@
                 type="number"
                 name="lat"
                 id="lat"
-                required
                 autocomplete="off"
                 v-model="coordinates.lat"
                 placeholder="53.541"
@@ -102,7 +98,6 @@
                 type="number"
                 name="long"
                 id="long"
-                required
                 autocomplete="off"
                 v-model="coordinates.lng"
                 placeholder="9.982"
