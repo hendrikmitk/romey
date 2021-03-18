@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import Dashboard from '../views/Dashboard.vue';
 import SpotDetails from '../views/SpotDetails.vue';
 import ContactPage from '../views/ContactPage.vue';
+import NewPostPage from '../views/NewPostPage.vue';
 
 const routes = [
 	{
@@ -19,6 +20,11 @@ const routes = [
 		path: '/contact',
 		name: 'ContactPage',
 		component: ContactPage
+	},
+	{
+		path: '/new',
+		name: 'NewPostPage',
+		component: NewPostPage
 	},
 	{
 		path: '/:catchAll(.*)',
