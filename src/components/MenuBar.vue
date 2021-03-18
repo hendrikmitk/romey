@@ -18,7 +18,8 @@
         <h1 class="font-medium font-montserrat">Contact</h1>
       </router-link>
 
-      <div
+      <router-link
+        to="/new"
         class="flex items-center justify-center w-40 transform border rounded-md border-bridal-300 h-3/5 hover:bg-shark-500 hover:text-bridal-300 bg-bridal-300 text-shark-500"
       >
         <svg
@@ -37,7 +38,7 @@
         </svg>
 
         <h1 class="font-medium font-montserrat">New Post</h1>
-      </div>
+      </router-link>
 
       <div
         class="flex items-center justify-center w-40 transform border rounded-md border-bridal-300 h-3/5 hover:bg-shark-500 hover:text-bridal-300 bg-bridal-300 text-shark-500"

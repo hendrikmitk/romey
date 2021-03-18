@@ -63,7 +63,7 @@
     </div>
 
     <!-- Right area -->
-    <div class="w-2/6 p-4">
+    <div class="w-2/6 p-4 bg-bridal-300">
       <div class="flex justify-center h-full rounded-sm bg-shark-500">
         <div class="w-3/5 mt-16">
           <img

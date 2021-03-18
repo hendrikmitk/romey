@@ -15,6 +15,7 @@ export default createStore({
 		initialized: state => state.initialized,
 		spotList: state => state.spotList,
 		selectedSpotId: state => state.selectedSpotId,
+		maxSpotId: state => state.maxSpotId,
 		latestPost: state => state.latestPostId,
 		detailSpot: state => state.detailSpot,
 		mapCenter: state => state.mapCenter
@@ -31,6 +32,10 @@ export default createStore({
 
 		setSelectedSpotId: (state, data) => {
 			state.selectedSpotId = data;
+		},
+
+		setMaxSpotId: (state, data) => {
+			state.maxSpotId = data;
 		},
 
 		setlatestPost: (state, data) => {
@@ -67,6 +72,14 @@ export default createStore({
 					return b.date.seconds - a.date.seconds;
 				});
 				commit('initSpotList', data.data);
+
+				// Get biggest spot id
+				const spotIds = () => {
+					return data.data.map(spot => spot.id);
+				};
+				const maxSpotId = Math.max(...spotIds());
+				console.log(`Biggest spot id is ${maxSpotId} 👠`);
+				commit('setMaxSpotId', maxSpotId);
 
 				// Set latestPost to latest post
 				const latestPost = data.data[0];
