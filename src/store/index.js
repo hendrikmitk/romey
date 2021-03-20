@@ -5,6 +5,7 @@ export default createStore({
 	state: {
 		initialized: false,
 		spotList: [],
+		authorList: [],
 		selectedSpotId: 0,
 		latestPost: {},
 		detailSpot: {},
@@ -14,6 +15,7 @@ export default createStore({
 	getters: {
 		initialized: state => state.initialized,
 		spotList: state => state.spotList,
+		authorList: state => state.authorList,
 		selectedSpotId: state => state.selectedSpotId,
 		maxSpotId: state => state.maxSpotId,
 		latestPost: state => state.latestPostId,
@@ -28,6 +30,10 @@ export default createStore({
 
 		initSpotList: (state, data) => {
 			state.spotList = data;
+		},
+
+		initAuthorList: (state, data) => {
+			state.authorList = data;
 		},
 
 		setSelectedSpotId: (state, data) => {
@@ -66,6 +72,11 @@ export default createStore({
 					return;
 				}
 				console.log('Spot data fetched 🎣');
+
+				// Get list of unique author names
+				const authorNames = Array.from(data.data, ({ author }) => author);
+				const uniqueAuthorNames = Array.from(new Set(authorNames));
+				console.log(`Unique author names are: ${uniqueAuthorNames.join(', ')} ✍️`);
 
 				// Sort data ascending by date
 				data.data.sort((a, b) => {
