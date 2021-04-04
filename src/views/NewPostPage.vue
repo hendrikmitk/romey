@@ -115,17 +115,14 @@
             />
           </div>
 
-          <!-- 'Add post' Button -->
-          <button
+          <!-- ButtonAddPost component -->
+          <ButtonAddPost
             @click="
               addSpot(spots, maxSpotId, selectedAuthor);
               $router.push('/');
               resetData();
             "
-            class="flex items-center justify-center w-40 h-10 transform border rounded-md cursor-pointer border-shark-500 hover:bg-bridal-300 hover:text-shark-500 bg-shark-500 text-bridal-300"
-          >
-            Add post
-          </button>
+          />
         </form>
 
         <!-- Footer component -->
@@ -137,6 +134,7 @@
 
 <script>
 import ButtonBack from "../components/ButtonBack";
+import ButtonAddPost from "../components/ButtonAddPost";
 import Footer from "../components/Footer";
 
 export default {
@@ -144,6 +142,7 @@ export default {
 
   components: {
     ButtonBack,
+    ButtonAddPost,
     Footer,
   },
 
