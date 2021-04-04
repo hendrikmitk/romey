@@ -4,7 +4,7 @@
       class="flex flex-col w-full px-24 pt-10 pb-2 bg-bridal-300 2xl:pt-16 2xl:px-32"
     >
       <!-- ButtonBack component -->
-      <ButtonBack />
+      <ButtonBack @click="resetData()" />
 
       <div
         class="flex flex-col justify-between w-3/6 h-full py-10 2xl:py-16 font-merriweather text-shark-500"
@@ -13,33 +13,41 @@
           <div class="text-5xl">New Post</div>
         </div>
 
-        <div class="flex flex-col px-0.5 py-2 space-y-4 2xl:space-y-6">
-          <!-- Title -->
-          <div class="flex flex-col">
-            <label
-              for="title"
-              class="text-sm italic 2xl:pb-1 text-shark-400 2xl:text-base"
-              >Title</label
-            >
-            <input
-              type="text"
-              name="title"
-              id="title"
-              autocomplete="off"
-              v-model="title"
-              placeholder="Elbphilharmonie"
-              class="p-1 border-b-2 border-dotted rounded-t bg-bridal-300 focus:border-none focus:outline-none focus:bg-bridal-600 border-shark-500"
-            />
+        <form class="flex flex-col px-0.5 py-2 space-y-4 2xl:space-y-6">
+          <!-- Title and author -->
+          <div class="flex space-x-5">
+            <div class="flex flex-col w-1/2">
+              <label for="title">Title</label>
+              <input
+                type="text"
+                name="title"
+                id="title"
+                autocomplete="off"
+                v-model="title"
+                placeholder="Elbphilharmonie"
+              />
+            </div>
+            <div class="flex flex-col w-1/2">
+              <label for="author">Author</label>
+              <select name="author" id="author" v-model="selectedAuthor">
+                <option disabled class="text-shark-400" value="">
+                  -- Please select author --
+                </option>
+                <option
+                  v-for="item in authorList"
+                  :key="item.author"
+                  :value="item"
+                >
+                  {{ item.author }}
+                </option>
+              </select>
+            </div>
           </div>
 
           <!-- City and country -->
           <div class="flex space-x-5">
             <div class="flex flex-col w-1/2">
-              <label
-                for="city"
-                class="text-sm italic 2xl:pb-1 text-shark-400 2xl:text-base"
-                >City</label
-              >
+              <label for="city">City</label>
               <input
                 type="text"
                 name="city"
@@ -47,15 +55,10 @@
                 autocomplete="off"
                 v-model="city"
                 placeholder="Hamburg"
-                class="p-1 border-b-2 border-dotted rounded-t bg-bridal-300 focus:border-none focus:outline-none focus:bg-bridal-600 border-shark-500"
               />
             </div>
             <div class="flex flex-col w-1/2">
-              <label
-                for="country"
-                class="text-sm italic 2xl:pb-1 text-shark-400 2xl:text-base"
-                >Country</label
-              >
+              <label for="country">Country</label>
               <input
                 type="text"
                 name="country"
@@ -63,7 +66,6 @@
                 autocomplete="off"
                 v-model="country"
                 placeholder="Germany"
-                class="p-1 border-b-2 border-dotted rounded-t bg-bridal-300 focus:border-none focus:outline-none focus:bg-bridal-600 border-shark-500"
               />
             </div>
           </div>
@@ -71,11 +73,7 @@
           <!-- Lat and long -->
           <div class="flex space-x-5">
             <div class="flex flex-col w-1/5">
-              <label
-                for="lat"
-                class="text-sm italic 2xl:pb-1 text-shark-400 2xl:text-base"
-                >Lat</label
-              >
+              <label for="lat">Lat</label>
               <input
                 type="number"
                 name="lat"
@@ -85,15 +83,11 @@
                 placeholder="53.541"
                 min="-90"
                 max="90"
-                class="p-1 border-b-2 border-dotted rounded-t bg-bridal-300 focus:border-none focus:outline-none focus:bg-bridal-600 border-shark-500"
+                class=""
               />
             </div>
             <div class="flex flex-col w-1/5">
-              <label
-                for="long"
-                class="text-sm italic 2xl:pb-1 text-shark-400 2xl:text-base"
-                >Long</label
-              >
+              <label for="long">Long</label>
               <input
                 type="number"
                 name="long"
@@ -103,18 +97,14 @@
                 placeholder="9.982"
                 min="-180"
                 max="180"
-                class="p-1 border-b-2 border-dotted rounded-t bg-bridal-300 focus:border-none focus:outline-none focus:bg-bridal-600 border-shark-500"
+                class=""
               />
             </div>
           </div>
 
           <!-- Description -->
-          <div class="flex flex-col">
-            <label
-              for="description"
-              class="text-sm italic 2xl:pb-1 text-shark-400 2xl:text-base"
-              >Description</label
-            >
+          <div class="flex flex-col" @click="logAuthor()">
+            <label for="description">Description</label>
             <input
               type="text"
               name="description"
@@ -122,14 +112,13 @@
               autocomplete="off"
               v-model="description"
               placeholder="The Elbphilharmonie is a concert hall ..."
-              class="p-1 border-b-2 border-dotted rounded-t bg-bridal-300 focus:border-none focus:outline-none focus:bg-bridal-600 border-shark-500"
             />
           </div>
 
           <!-- 'Add post' Button -->
           <button
             @click="
-              addSpot(spots, maxSpotId);
+              addSpot(spots, maxSpotId, selectedAuthor);
               $router.push('/');
               resetData();
             "
@@ -137,7 +126,7 @@
           >
             Add post
           </button>
-        </div>
+        </form>
 
         <!-- Footer component -->
         <Footer />
@@ -172,7 +161,7 @@ export default {
   },
 
   methods: {
-    addSpot(spots, maxSpotId) {
+    addSpot(spots, maxSpotId, selectedAuthor) {
       // Set incremented spot id for new spot
       let newSpotId = maxSpotId + 1;
 
@@ -182,9 +171,9 @@ export default {
 
       // Push new spot to spots array
       spots.push({
-        author: "Peter Nichols",
-        author_image_alt: "Peter Nichols",
-        author_image_src: "/img/team/peter-nichols.jpg",
+        author: selectedAuthor.author,
+        author_image_alt: selectedAuthor.author_image_alt,
+        author_image_src: selectedAuthor.author_image_src,
         date: {
           seconds: seconds,
         },
@@ -236,6 +225,20 @@ export default {
 
     maxSpotId() {
       return this.$store.getters.maxSpotId;
+    },
+
+    authorList() {
+      return this.$store.getters.authorList;
+    },
+
+    selectedAuthor: {
+      get: function () {
+        return this.$store.getters.selectedAuthor;
+      },
+      set: function (newAuthor) {
+        console.log(`Author changed to ${newAuthor.author} ✍️`);
+        this.$store.commit("setSelectedAuthor", newAuthor);
+      },
     },
   },
 };

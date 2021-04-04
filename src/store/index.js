@@ -6,6 +6,7 @@ export default createStore({
 		initialized: false,
 		spotList: [],
 		authorList: [],
+		selectedAuthor: {},
 		selectedSpotId: 0,
 		latestPost: {},
 		detailSpot: {},
@@ -16,6 +17,7 @@ export default createStore({
 		initialized: state => state.initialized,
 		spotList: state => state.spotList,
 		authorList: state => state.authorList,
+		selectedAuthor: state => state.selectedAuthor,
 		selectedSpotId: state => state.selectedSpotId,
 		maxSpotId: state => state.maxSpotId,
 		latestPost: state => state.latestPostId,
@@ -34,6 +36,10 @@ export default createStore({
 
 		initAuthorList: (state, data) => {
 			state.authorList = data;
+		},
+
+		setSelectedAuthor: (state, data) => {
+			state.selectedAuthor = data;
 		},
 
 		setSelectedSpotId: (state, data) => {
@@ -73,16 +79,26 @@ export default createStore({
 				}
 				console.log('Spot data fetched 🎣');
 
-				// Get list of unique author names
-				const authorNames = Array.from(data.data, ({ author }) => author);
-				const uniqueAuthorNames = Array.from(new Set(authorNames));
-				console.log(`Unique author names are: ${uniqueAuthorNames.join(', ')} ✍️`);
-
 				// Sort data ascending by date
 				data.data.sort((a, b) => {
 					return b.date.seconds - a.date.seconds;
 				});
 				commit('initSpotList', data.data);
+
+				// Get list of unique author details and set default author
+				const authorDetails = data.data.map(post => {
+					return {
+						author: post.author,
+						author_image_alt: post.author_image_alt,
+						author_image_src: post.author_image_src
+					};
+				});
+				const uniqueAuthorDetails = authorDetails.filter(
+					(v, i, a) => a.findIndex(t => t.author === v.author) === i
+				);
+				commit('initAuthorList', uniqueAuthorDetails);
+				console.log(`Default author is ${uniqueAuthorDetails[0].author} ✍️`);
+				commit('setSelectedAuthor', uniqueAuthorDetails[0]);
 
 				// Get biggest spot id
 				const spotIds = () => {
