@@ -3,6 +3,7 @@ import Dashboard from '../views/Dashboard.vue';
 import SpotDetails from '../views/SpotDetails.vue';
 import ContactPage from '../views/ContactPage.vue';
 import NewPostPage from '../views/NewPostPage.vue';
+import PageNotFound from '../views/PageNotFound.vue';
 
 const routes = [
 	{
@@ -29,7 +30,7 @@ const routes = [
 	{
 		path: '/:catchAll(.*)',
 		name: 'PageNotFound',
-		component: () => import('../views/PageNotFound.vue')
+		component: PageNotFound
 	}
 ];
 
