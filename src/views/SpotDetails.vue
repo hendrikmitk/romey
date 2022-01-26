@@ -1,13 +1,13 @@
 <template>
   <div class="flex h-screen pt-16">
     <div
-      class="flex flex-col w-4/6 px-24 pt-10 pb-2 2xl:pt-16 2xl:px-32 bg-bridal-300"
+      class="2xl:pt-16 2xl:px-32 bg-bridal-300 flex flex-col w-4/6 px-24 pt-10 pb-2"
     >
       <!-- ButtonBack component -->
       <ButtonBack @click="centerMapLastdetail()" />
 
       <div
-        class="flex flex-col justify-between h-full py-10 2xl:py-16 font-merriweather text-shark-500"
+        class="2xl:py-16 font-merriweather text-shark-500 flex flex-col justify-between h-full py-10"
       >
         <!-- Title, date and author -->
         <div>
@@ -16,7 +16,7 @@
 
           <!-- Date and author -->
           <div class="flex items-center justify-between">
-            <div class="italic text-shark-400">
+            <div class="text-shark-400 italic">
               {{
                 toDateTime(detailSpot.date.seconds).toLocaleDateString(
                   "en-us",
@@ -29,7 +29,7 @@
               }}
             </div>
             <div class="flex space-x-2">
-              <p class="flex items-center text-sm font-light text-shark-500">
+              <p class="text-shark-500 flex items-center text-sm font-light">
                 {{ detailSpot.author }}
               </p>
               <img
@@ -40,9 +40,9 @@
           </div>
         </div>
         <div class="flex">
-          <div class="w-4/12 xl:text-lg">
+          <div class="xl:text-lg w-4/12">
             <div
-              class="relative overflow-hidden lg:w-32 lg:h-48 xl:w-48 xl:h-64 2xl:w-60 2xl:h-96"
+              class="lg:w-32 lg:h-48 xl:w-48 xl:h-64 2xl:w-60 2xl:h-96 relative overflow-hidden"
             >
               <!-- Image -->
               <img
@@ -63,15 +63,15 @@
           </div>
 
           <!-- Text -->
-          <div class="w-8/12 pl-6 overflow-scroll text-sm 2xl:text-lg">
+          <div class="2xl:text-lg w-8/12 pl-6 overflow-auto text-sm">
             {{ detailSpot.text }}
           </div>
         </div>
 
         <!-- Location -->
-        <div class="flex items-center text-shark-300">
+        <div class="text-shark-300 flex items-center">
           <svg
-            class="w-5 h-5 mr-2 2xl:w-8 2xl:h-8"
+            class="2xl:w-8 2xl:h-8 w-5 h-5 mr-2"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -90,7 +90,7 @@
               d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
             ></path>
           </svg>
-          <div class="text-xs italic 2xl:text-sm text-shark-400">
+          <div class="2xl:text-sm text-shark-400 text-xs italic">
             {{ detailSpot.location.city }},
             {{ detailSpot.location.country }}
           </div>
