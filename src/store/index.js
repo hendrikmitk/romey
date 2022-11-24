@@ -131,7 +131,7 @@ export default createStore({
 
 /* IO Handling */
 
-const url = '/.netlify/functions/get-spots';
+const url = '/api/get-spots';
 
 export function getSpotData() {
   return fetch(url);
