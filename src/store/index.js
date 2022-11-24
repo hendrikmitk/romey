@@ -1,5 +1,4 @@
 import { createStore } from 'vuex';
-// import { getSpotData } from '../utils/spotData'; // Static spot data
 
 export default createStore({
 	state: {
@@ -72,7 +71,6 @@ export default createStore({
 
 			{
 				// Get spot data
-				// const data = getSpotData(); // Static spot data
 				const { data, error } = await to(getSpotData());
 				if (error) {
 					return;
