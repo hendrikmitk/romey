@@ -131,10 +131,10 @@ export default createStore({
 
 /* IO Handling */
 
-const url = 'https://romey-api.herokuapp.com/';
+const url = '/.netlify/functions/get-spots';
 
 export function getSpotData() {
-	return fetch(url + 'spots');
+  return fetch(url);
 }
 
 function to(promise) {
